@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
-
     <title>Airbnb - Alugue imóveis para você!</title>
 </head>
 
@@ -26,15 +25,24 @@
             </div>
         </nav>
     </div>
+
     <div class="container">
         <div id="busca">
             <div id="pac-input" class="busca-input">
                 <p>LOCALIZAÇÃO</p>
                 <input type="text" placeholder="Para onde você vai?">
             </div>
-            <div class="busca-input">
-                <p>CHECK-IN/CHECKOUT</p>
-                <input type="text" placeholder="Insira as datas">
+            <div class="busca-input dates">
+                <div>
+                    <p>CHECK-IN/CHECKOUT</p>
+                    <input type="text" onfocus="(this.type='date')" id="datepicker" min="2020-05-10" max="2021-04-30"
+                        placeholder="Insira a data">
+                </div>
+                <div>
+                    <p></p>
+                    <input type="text" onfocus="(this.type='date')" id="datepicker" min="2020-05-10" max="2021-04-30"
+                        placeholder="Insira as datas">
+                </div>
             </div>
             <div class="busca-input">
                 <p>HÓSPEDES</p>
@@ -43,9 +51,12 @@
             <button type="submit" class="botao">Busca</button>
         </div>
         <h2>Podemos estar afastados, mas <br> vamos superar isso juntos.</h2>
+        <!-- Divisão dos cards gerados pelo arquivo index.js -->
         <div id="cards">
         </div>
-        <nav aria-label="Navegação de página exemplo">
+
+        <!-- Paginação  -->
+        <nav>
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" onclick="prevNext('prev')">Anterior</a></li>
                 <li class="page-item"><a class="page-link" onclick="paginacao(1)">1</a></li>
@@ -54,6 +65,7 @@
                 <li class="page-item"><a class="page-link" onclick="prevNext('next')">Próximo</a></li>
             </ul>
         </nav>
+        <div id="alert"></div>
     </div>
 
     <!-- Arquivo local de JavaScript -->

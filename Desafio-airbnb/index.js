@@ -62,13 +62,13 @@ function prevNext(escolha) {
     let pagina = localStorage.getItem("pagina-escolhida");
     if (escolha === "prev") {
         if (pagina >= 2) paginacao((pagina - 1));
-        else alert("voce ja esta no limite");
+        else alerta("Avance a página");
     } else if (escolha === "next") {
-        if (pagina <= 3) {
+        if (pagina < 3) {
             pagina++;
             paginacao(pagina);
         }
-        else alert("Voce está no limite")
+        else alerta("Volte a página")
     }
 
 }
@@ -85,4 +85,13 @@ function separaArray(data) {
     });
 }
 
+function alerta(mensagem) {
+    const div = document.getElementById("alert");
+    div.innerHTML =
+        `
+        <div class="alert alert-primary" role="alert">
+            ${mensagem}
+          </div>
+        `
+}
 main();

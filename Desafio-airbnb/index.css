@@ -55,6 +55,14 @@ body {
     font-weight: bold;
 }
 
+.dates {
+    display: flex;
+}
+
+#datepicker {
+    width: 100%;
+}
+
 .botao {
     width: 10%;
     margin: 1%;
@@ -64,9 +72,10 @@ body {
     color: white;
     background: linear-gradient(to right, rgb(255, 68, 77), #BD1E59);
 }
+
 .botao:hover {
     color: white;
-    transition: color 0.8s linear;    
+    transition: color 0.8s linear;
 }
 
 /* Seção dos cards */
@@ -122,4 +131,16 @@ h2 {
 
 .preco:hover {
     color: rgb(245, 123, 168);
+}
+
+.page-link:hover {
+    background: #BD1E59!important;
+}
+
+.page-item:hover {
+    color: white;
+}
+
+.alert {
+    width: 100%;
 }
