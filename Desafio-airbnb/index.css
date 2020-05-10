@@ -1,0 +1,114 @@
+body {
+    width: 100vw;
+}
+
+#img-perfil {
+    width: 15%;
+    border-radius: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.link:hover {
+    color: rgba(78, 78, 236, 0.755)!important;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Seção de busca */
+
+#busca {
+    box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.319);
+    border-radius: 12px;
+    display: flex;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.busca-input {
+    border-radius: 12px;
+    width: 30%;
+    height: 70px;
+    padding: 15px;
+}
+
+.busca-input:hover {
+    border: 1px solid rgba(204, 204, 204, 0.496);
+}
+
+.busca-input input {
+    border: none;
+    height: auto;
+    width: 80%;
+    outline: none;
+}
+
+.busca-input p {
+    font-size: 0.7em;
+    height: 0px;
+    font-weight: bold;
+}
+
+.botao {
+    width: 10%;
+    margin: 1%;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to right, rgb(255, 68, 77), #BD1E59);
+}
+
+/* Seção dos cards */
+
+h2 {
+    width: 90%;
+    margin-top: 3%;
+    color: rgba(223, 69, 100, 0.85)
+}
+
+#cards {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.card {
+    padding: 2%;
+    width: 29%;
+    margin: 1%;
+    font-size: 0.9em;
+}
+
+.card-text {
+    height: 50%;
+}
+
+.card-title {
+    margin-top: 5%!important;
+    height: 60%;
+    font-size: 1em;
+}
+
+.card img {
+    width: 100%;
+    height: 60%;
+}
+
+.preco {
+    font-weight: bold;
+    color: rgba(223, 69, 100, 0.85);
+    cursor: pointer;
+}
+
+.preco:hover {
+    color: rgb(245, 123, 168);
+}
