@@ -3,29 +3,54 @@ const apiUrlGoogle = "https://v2-api.sheety.co/6b2ed2a5fab94b08729b38ed6aa2468c/
 const divCards = document.getElementById("cards");
 
 let data = [];
+
+//Objeto que armazena 3 vetores para separar os itens
 let dataPaginacao = {
     pag1: [],
     pag2: [],
     pag3: []
 }
 
+//Função para buscar os dados
 async function buscaDados(url) {
     return await fetch(url)
         .then(async (resposta) => await resposta.json())
 }
 
+//No main chamo minhas funções principais
 async function main() {
+    //Realizo a requisição
     data = await buscaDados(apiUrl);
+    //Separo meu Array
     separaArray(data);
+    //Defino qual página será selecionada no carregamento do meu site
     paginacao(1);
 
     //Dados para importação de latitude e longitude
     dataGoogle = await buscaDados(apiUrlGoogle);
-    console.log(dataGoogle);
 }
+
+//Recebo uma database e distribuo em meus arrays do Objeto dataPaginacao
+function separaArray(data) {
+    //Separando os itens
+    data.map((item, index) => {
+        if (index < 9) {
+            //Armazeno os 9 primeiros itens no primeiro vetor que será os itens da primeira página
+            dataPaginacao.pag1.push(item);
+        } else if (index >= 9 && index < 18) {
+            //Armazeno os próximos 9 itens no segundo vetor que será os itens da segunda página
+            dataPaginacao.pag2.push(item);
+        } else {
+            //Armazeno os itens restantes em uma terceira página
+            dataPaginacao.pag3.push(item);
+        }
+    });
+}
+
 
 //Selecionando a pagina que o usuário escolheu
 function paginacao(pagina) {
+    //Crio um vetor para receber qual vetor será renderizado na div
     let paginaCarregada = [];
     switch (pagina) {
         case 1:
@@ -41,7 +66,7 @@ function paginacao(pagina) {
             paginaCarregada = dataPaginacao.pag1;
             break;
     }
-    //Armazenando a página escolhida no local Storage    
+    //Armazenando a página escolhida no local Storage (armazenamento rápido do navegador)  
     localStorage.setItem("pagina-escolhida", pagina);
 
     //Bloco que será renderizado
@@ -59,7 +84,9 @@ function paginacao(pagina) {
 }
 
 function prevNext(escolha) {
+    //Resgato o valor da página que está armazenada no local storage
     let pagina = localStorage.getItem("pagina-escolhida");
+    //Verificação dos limites 
     if (escolha === "prev") {
         if (pagina >= 2) paginacao((pagina - 1));
         else alerta("Avance a página");
@@ -71,18 +98,6 @@ function prevNext(escolha) {
         else alerta("Volte a página")
     }
 
-}
-function separaArray(data) {
-    //Separando os itens
-    data.map((item, index) => {
-        if (index < 9) {
-            dataPaginacao.pag1.push(item);
-        } else if (index >= 9 && index < 18) {
-            dataPaginacao.pag2.push(item);
-        } else {
-            dataPaginacao.pag3.push(item);
-        }
-    });
 }
 
 function alerta(mensagem) {
