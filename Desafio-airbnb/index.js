@@ -47,7 +47,6 @@ function separaArray(data) {
     });
 }
 
-
 //Selecionando a pagina que o usuário escolheu
 function paginacao(pagina) {
     //Crio um vetor para receber qual vetor será renderizado na div

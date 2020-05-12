@@ -135,6 +135,7 @@ h2 {
 
 .page-link:hover {
     background: #BD1E59!important;
+    color: white;
 }
 
 .page-item:hover {
